@@ -1,0 +1,10 @@
+---
+- name: Build Docker Image
+  hosts: localhost
+  tasks:
+    - name: Build docker image from Dockerfile
+      docker_image:
+        build:
+          path: /path/to/your/project  # เปลี่ยนเป็น path ของโปรเจคคุณ
+        name: your-docker-repo/your-app
+        tag: latest

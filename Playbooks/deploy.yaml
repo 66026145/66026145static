@@ -1,0 +1,17 @@
+---
+- name: Deploy Docker container
+  hosts: your_remote_server
+  become: yes
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: your-docker-repo/your-app
+        tag: latest
+        source: pull
+
+    - name: Restart docker container
+      docker_container:
+        name: your-container-name
+        image: your-docker-repo/your-app:latest
+        state: restarted
+        restart_policy: always
